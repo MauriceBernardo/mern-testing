@@ -73,9 +73,7 @@ class Home extends Component {
     });
 
     axios.delete("/api/deleteData", {
-      data: {
-        id: objIdToDelete
-      }
+      id: objIdToDelete,
     });
   };
 
