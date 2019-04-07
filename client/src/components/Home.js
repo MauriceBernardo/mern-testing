@@ -73,7 +73,9 @@ class Home extends Component {
     });
 
     axios.delete("/api/deleteData", {
-      id: objIdToDelete,
+      id: {
+        id :objIdToDelete,
+      },
     });
   };
 
@@ -89,7 +91,9 @@ class Home extends Component {
     });
 
     axios.post("/api/updateData", {
-      id: objIdToUpdate,
+      id: {
+        id: objIdToUpdate,
+      },
       update: { message: updateToApply }
     });
   };
