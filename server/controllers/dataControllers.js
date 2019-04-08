@@ -14,7 +14,7 @@ var getData = function(req, res){
 // this method overwrites existing data in our database
 var updateData = function(req, res){
   const { id, update } = req.body;
-  Data.findOneAndUpdate(id, update, err => {
+  Data.findOneAndUpdate({_id: id}, update, err => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });
   });
@@ -24,7 +24,8 @@ var updateData = function(req, res){
 // this method removes existing data in our database
 var deleteData = function(req, res){
   const { id } = req.body;
-  Data.findOneAndDelete(id, err => {
+  
+  Data.findOneAndDelete({_id: id}, err => {
     if (err) return res.send(err);
     return res.json({ success: true });
   });

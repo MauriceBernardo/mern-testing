@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 // this is our MongoDB database
-const dbRoute = process.env.db || null;
+const dbRoute = "mongodb+srv://Maurice:Maurice7b21@cluster0-pbfmm.mongodb.net/test?retryWrites=true" || null;
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });

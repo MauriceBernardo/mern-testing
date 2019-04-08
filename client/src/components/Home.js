@@ -67,15 +67,16 @@ class Home extends Component {
   deleteFromDB = idTodelete => {
     let objIdToDelete = null;
     this.state.data.forEach(dat => {
-      if (dat.id === idTodelete) {
+      if (dat.id === Number(idTodelete)) {
         objIdToDelete = dat._id;
+        console.log("yeay",objIdToDelete);
       }
     });
 
-    axios.delete("/api/deleteData", {
-      id: {
+    axios.delete("/api/deleteData", { 
+      data:{
         id :objIdToDelete,
-      },
+      }
     });
   };
 
@@ -85,15 +86,13 @@ class Home extends Component {
   updateDB = (idToUpdate, updateToApply) => {
     let objIdToUpdate = null;
     this.state.data.forEach(dat => {
-      if (dat.id === idToUpdate) {
+      if (dat.id === Number(idToUpdate)) {
         objIdToUpdate = dat._id;
       }
     });
 
     axios.post("/api/updateData", {
-      id: {
-        id: objIdToUpdate,
-      },
+      id: objIdToUpdate,
       update: { message: updateToApply }
     });
   };
